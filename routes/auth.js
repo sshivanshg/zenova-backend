@@ -1,24 +1,17 @@
 const express = require('express');
 const router = express.Router();
-
-// Placeholder: import controllers later
+const authController = require('../controllers/authController');
 
 // Register (email/mobile)
-router.post('/register', (req, res) => {
-  // TODO: Implement registration logic
-  res.json({ message: 'Register endpoint' });
-});
+router.post('/register', authController.register);
+
+// Login (email/mobile + password)
+router.post('/login', authController.login);
 
 // OTP verification
-router.post('/verify-otp', (req, res) => {
-  // TODO: Implement OTP verification logic
-  res.json({ message: 'Verify OTP endpoint' });
-});
+router.post('/verify-otp', authController.verifyOtp);
 
 // Social login (Google/Apple)
-router.post('/social-login', (req, res) => {
-  // TODO: Implement social login logic
-  res.json({ message: 'Social login endpoint' });
-});
+router.post('/social-login', authController.socialLogin);
 
 module.exports = router; 
